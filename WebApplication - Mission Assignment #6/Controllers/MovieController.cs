@@ -19,21 +19,8 @@ namespace WebApplication___Mission_Assignment__6.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveMovie(Movie movie)
+        public IActionResult SaveMovie()
         {
-            if (ModelState.IsValid)
-            {
-                _context.Movies.Add(movie);
-                _context.SaveChanges();
-                return RedirectToAction("MovieList"); // Redirect after saving
-            }
-            return View("AddMovie"); // If invalid, re-render form
-        }
-
-        public IActionResult MovieList()
-        {
-            var movies = _context.Movies.ToList();
-            return View(movies);
         }
     }
 }
