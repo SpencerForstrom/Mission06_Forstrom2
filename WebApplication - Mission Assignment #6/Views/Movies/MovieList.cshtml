@@ -1,0 +1,33 @@
+﻿@model List<WebApplication___Mission_Assignment__6.Models.Movie>
+
+<h2 class="text-center">Movie List</h2>
+
+<!-- Responsive Table -->
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@movie.Title</td>
+                    <td>@movie.Year</td>
+                    <td>@movie.Director</td>
+                    <td>@movie.Rating</td>
+                    <td>
+                        <a asp-controller="Movies" asp-action="EditMovie" asp-route-id="@movie.MovieId" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-controller="Movies" asp-action="DeleteMovie" asp-route-id="@movie.MovieId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this movie?');">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

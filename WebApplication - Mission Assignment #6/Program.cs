@@ -1,10 +1,9 @@
-using Microsoft.EntityFrameworkCore;
 using WebApplication___Mission_Assignment__6.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseWebRoot("wwwroot"); // Explicitly set WebRootPath
-
+// Register DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -19,8 +18,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // Ensure static file serving is enabled
-
+app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 

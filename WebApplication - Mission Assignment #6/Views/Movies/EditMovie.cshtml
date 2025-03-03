@@ -1,0 +1,43 @@
+﻿@model WebApplication___Mission_Assignment__6.Models.Movie
+
+<h2 class="text-center">Edit Movie</h2>
+
+<form method="post" asp-controller="Movies" asp-action="UpdateMovie">
+    <input type="hidden" name="MovieId" value="@Model.MovieId" />
+
+    <div class="mb-3">
+        <label class="form-label">Title:</label>
+        <input type="text" name="Title" class="form-control" value="@Model.Title" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Year:</label>
+        <input type="number" name="Year" class="form-control" value="@Model.Year" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Director:</label>
+        <input type="text" name="Director" class="form-control" value="@Model.Director" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Rating:</label>
+        <select name="Rating" class="form-select" required>
+            <option selected>@Model.Rating</option>
+            <option>G</option>
+            <option>PG</option>
+            <option>PG-13</option>
+            <option>R</option>
+        </select>
+    </div>
+    <div class="form-check mb-3">
+        <input type="checkbox" name="Edited" class="form-check-input" value="true" @(Model.Edited ? "checked" : "") />
+        <label class="form-check-label">Edited</label>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Lent To:</label>
+        <input type="text" name="LentTo" class="form-control" value="@Model.LentTo" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Notes:</label>
+        <input type="text" name="Notes" class="form-control" maxlength="25" value="@Model.Notes" />
+    </div>
+    <button type="submit" class="btn btn-success">Update Movie</button>
+</form>
