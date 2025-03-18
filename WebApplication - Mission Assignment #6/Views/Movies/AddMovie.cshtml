@@ -1,4 +1,9 @@
-﻿@model WebApplication___Mission_Assignment__6.Models.Movie
+﻿@*
+    AddMovie.cshtml
+    This page contains a form that allows users to enter details for a new movie.
+    The form includes validation and redirects to the movie list upon successful submission.
+*@
+@model WebApplication___Mission_Assignment__6.Models.Movie
 
 <h2 class="text-center">Add a Movie</h2>
 
@@ -17,9 +22,13 @@
         <span asp-validation-for="Year" class="text-danger"></span>
     </div>
 
-    <div class="form-check mb-3">
-        <input asp-for="Edited" class="form-check-input" type="checkbox" required />
-        <label class="form-check-label">Edited</label>
+    <div class="form-group">
+        <label asp-for="Edited">Edited</label>
+        <select asp-for="Edited" class="form-control">
+            <option value="">-- Select an option --</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
         <span asp-validation-for="Edited" class="text-danger"></span>
     </div>
 

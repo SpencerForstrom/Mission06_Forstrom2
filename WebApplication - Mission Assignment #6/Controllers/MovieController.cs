@@ -5,6 +5,8 @@ using System.Linq;
 
 namespace WebApplication___Mission_Assignment__6.Controllers
 {
+    // MovieController.cs
+    // This controller handles all operations related to movies, including viewing, adding, editing, and deleting movies.
     public class MoviesController : Controller
     {
         private readonly ApplicationDbContext _context;
